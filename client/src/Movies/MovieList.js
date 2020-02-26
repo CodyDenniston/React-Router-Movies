@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import {Link} from "react-router-dom";
+import {Link, useParams} from "react-router-dom";
 import Movie from "./Movie";
 
 const MovieList = props => {
@@ -30,9 +30,10 @@ const MovieList = props => {
 }
 
 function MovieDetails({ movie }) {
-  const { title, director, metascore, stars } = movie;
+  const { title, director, metascore, stars, id } = movie;
+  //const {ItemID} = useParams();
   return (
-    <Link className="movie-card" to="Movie/:id">
+    <Link className="movie-card" to={`movies/${id}`}>
       <h2>{title}</h2>
       <div className="movie-director">
         Director: <em>{director}</em>
